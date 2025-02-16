@@ -18,7 +18,14 @@ export const ConvexClientProvider = ({
     children,
 }: ConvexClientProviderProps) => {
     return (
-        <ClerkProvider>
+        <ClerkProvider
+            appearance={{
+                layout: {
+                socialButtonsPlacement: 'bottom',
+                unsafe_disableDevelopmentModeWarnings: true,
+                }
+            }}
+            >
             <ConvexProviderWithClerk useAuth={useAuth} client={convex}>
                 <Authenticated>{children}</Authenticated>
                 <AuthLoading>
